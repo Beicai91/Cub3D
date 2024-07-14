@@ -29,13 +29,13 @@ void    get_texture_path(char identifier, char *line, t_data *data)
     line += 2;
     skip_whitespaces(&line);
     if (identifier == 'N')
-        data->notex = ft_substr(line, 0, ft_strlen(line)); //to free, possile to be NULL if malloc fails
+        data->notex = ft_substr(line, 0, ft_strlen(line) - 1); //to free, attention to remove the nl
     else if (identifier == 'S')
-        data->sotex = ft_substr(line, 0, ft_strlen(line));
+        data->sotex = ft_substr(line, 0, ft_strlen(line) - 1);
     else if (identifier == 'W')
-        data->wetex = ft_substr(line, 0, ft_strlen(line));
+        data->wetex = ft_substr(line, 0, ft_strlen(line) - 1);
     else if (identifier == 'E')
-        data->eatex = ft_substr(line, 0, ft_strlen(line));
+        data->eatex = ft_substr(line, 0, ft_strlen(line) - 1);
 }
 
 int create_rgb(int r, int g, int b)

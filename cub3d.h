@@ -12,34 +12,44 @@
 
 # define FOV 60
 # define GRID_SIZE 64
-# define SCREEN_HGT 200
-# define SCREEN_WDH 320
+# define TEX_SIZE 64
+# define SCREEN_HGT 800
+# define SCREEN_WDH 1280
 # define ACTUAL_WALL_HGT 64
 # define PLYR_HGT 32
 # define PI 3.1415926535
 # define CONVERTER PI / 180
 # define MOVESPEED 20
-# define ROTATESPEED 0.015
+# define ROTATESPEED 10
 # define FAILURE 1
 # define SUCCESS 0
 
 typedef enum    s_key
 {
     UP = 13,
-    LEFT = 0,
-    RIGHT = 2,
+    LEFT = 2,
+    RIGHT = 0,
     DOWN = 1,
     SPACE = 49,
     ESC = 53,
-    ROTATE_L = 123,
-    ROTATE_R = 124
+    ROTATE_L = 124,
+    ROTATE_R = 123
 }   t_key;
 
 typedef enum    s_datatype
 {
     CHAR = 0,
-    STRING_ARRAY = 1
+    STRING_ARRAY = 1,
+    INT_ARRAY = 2
 }   t_datatype;
+
+typedef enum    s_texdir
+{
+    NORTH = 0,
+    SOUTH = 1,
+    WEST = 2,
+    EAST = 3
+}   t_texdir;
 
 typedef struct s_player
 {
@@ -71,11 +81,32 @@ typedef struct  s_ray
     double  ray_y;
 }   t_ray;
 
+typedef struct s_img
+{
+    void    *img_ptr;
+    int     *addr;
+    int     bpp;
+    int     line_sz;
+    int     endian;
+    int     width;
+    int     height;
+}   t_img;
+
+typedef struct  s_tex
+{
+    struct s_img    no_img;
+    struct s_img    so_img;
+    struct s_img    we_img;
+    struct s_img    ea_img;
+}   t_tex;
+
 typedef struct  s_data
 {
     struct s_map    mapinfo;
     struct s_player player;
     struct s_ray    rayinfo;
+    struct s_img    screen_img;
+    struct s_tex    tex;
     char    *notex;
     char    *sotex;
     char    *wetex;
@@ -125,6 +156,8 @@ void    move_forward(t_data *data);
 void    move_backward(t_data *data);
 void    move_left(t_data *data);
 void    move_right(t_data *data);
+void    rotate_left(t_data *data);
+void    rotate_right(t_data *data);
 int if_wall(t_data *data, double x_offset, double y_offset);
 
 

@@ -1,6 +1,6 @@
 NAME = cub
 CC = gcc
-CFLAGS = -Wextra -Werror -Wall -MMD -MP
+CFLAGS = -Wextra -Werror -Wall -MMD -MP -g
 FRAMEWORK = -framework OpenGL -framework AppKit
 H_PATH = -I. -I ./libft
 LIB_PATH = -L ./libft -L ./minilibx
@@ -22,7 +22,8 @@ SRCS = main.c \
 	   check_intersection_utils.c \
 	   render.c \
 	   move_player_fb.c \
-	   move_player_lr.c
+	   move_player_lr.c \
+	   rotate.c
 
 OBJS = $(patsubst %.c,$(DODIR)/%.o,$(SRCS))
 DEP = $(patsubst %.o,%.d,$(OBJS))

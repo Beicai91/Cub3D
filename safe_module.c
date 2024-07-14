@@ -21,6 +21,8 @@ void    *safe_malloc(int size, t_datatype data_type, t_data *data)
         p = malloc(sizeof(char) * size);
     if (data_type == STRING_ARRAY)
         p = malloc(sizeof(char *) * size);
+    if (data_type == INT_ARRAY)
+        p = malloc(sizeof(int *) * size);
     if (!p)
     {
         /*free data*/

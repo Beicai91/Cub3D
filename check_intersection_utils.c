@@ -34,13 +34,21 @@ double    get_ray_d(t_data *data)
 {
     double  ray_d;
 
-    if (data->rayinfo.ray_angle >= 0 && data->rayinfo.ray_angle <= 90)
+    if (data->rayinfo.ray_angle > 0 && data->rayinfo.ray_angle < 90)
         ray_d = (data->player.plyr_y - data->rayinfo.ray_y) / sin(data->rayinfo.ray_angle * CONVERTER);
+    else if (data->rayinfo.ray_angle == 90)
+        ray_d = data->player.plyr_y - data->rayinfo.ray_y;
     else if (data->rayinfo.ray_angle > 90 && data->rayinfo.ray_angle < 180)
         ray_d = (data->player.plyr_y - data->rayinfo.ray_y) / cos((data->rayinfo.ray_angle - 90) * CONVERTER);
+    else if (data->rayinfo.ray_angle == 180)
+        ray_d = data->player.plyr_x - data->rayinfo.ray_x;
     else if (data->rayinfo.ray_angle >= 180 && data->rayinfo.ray_angle < 270)
         ray_d = (data->rayinfo.ray_y - data->player.plyr_y) / sin((data->rayinfo.ray_angle - 180) * CONVERTER);
-    else
+    else if (data->rayinfo.ray_angle == 270)
+        ray_d = data->rayinfo.ray_y - data->player.plyr_y;
+    else if (data->rayinfo.ray_angle > 270 && data->rayinfo.ray_angle < 360)
         ray_d = (data->rayinfo.ray_y - data->player.plyr_y) / sin((360 - data->rayinfo.ray_angle) * CONVERTER);
+    else
+        ray_d = data->rayinfo.ray_x - data->player.plyr_x;
     return (ray_d);
 }

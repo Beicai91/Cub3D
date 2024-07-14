@@ -45,6 +45,9 @@ int if_wall(t_data *data, double x_offset, double y_offset)
 
     col = (int)((data->player.plyr_x + x_offset) / 64);
     row = (int)((data->player.plyr_y + y_offset) / 64);
+    //test
+    printf("checking if wall, col %d, row %d\n", col, row);
+    //
     if (data->mapinfo.map[row][col] == '1')
         return (1);
     else
@@ -67,11 +70,11 @@ void    move_left(t_data *data)
     {
         data->player.plyr_x += x_offset;
         data->player.plyr_y += y_offset;
+        data->player.if_moved = 1;
     }
     //test
     printf("after moving, x %f, y %f\n", data->player.plyr_x, data->player.plyr_y);
     //
-    data->player.if_moved = 1;
 }
 
 
@@ -87,6 +90,6 @@ void    move_right(t_data *data)
     {
         data->player.plyr_x += x_offset;
         data->player.plyr_y += y_offset;
+        data->player.if_moved = 1;
     }
-    data->player.if_moved = 1;
 }

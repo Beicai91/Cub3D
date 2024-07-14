@@ -105,11 +105,7 @@ void    check_mapvalidity_assign_values(t_data *data)
     check_wall(data);
     check_map_ele(data);
     if (data->player.plyr_dir == 'N')
-    {
         data->player.dir = 90;
-        //test
-        //data->player.dir = 45;
-    }
     else if (data->player.plyr_dir == 'S')
         data->player.dir = 270;
     else if (data->player.plyr_dir == 'W')

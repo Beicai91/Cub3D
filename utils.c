@@ -16,7 +16,20 @@ void    free_map(t_data *data)
         }
         free(map);
     }
+}
 
+void    destroy_all_imgs(t_data *data)
+{
+    if (data->screen_img.img_ptr != NULL)
+        mlx_destroy_image(data->mlx, data->screen_img.img_ptr);
+    if (data->tex.no_img.img_ptr != NULL)
+        mlx_destroy_image(data->mlx, data->tex.no_img.img_ptr);
+    if (data->tex.so_img.img_ptr != NULL)
+        mlx_destroy_image(data->mlx, data->tex.so_img.img_ptr);
+    if (data->tex.we_img.img_ptr != NULL)
+        mlx_destroy_image(data->mlx, data->tex.we_img.img_ptr);
+    if (data->tex.ea_img.img_ptr != NULL)
+        mlx_destroy_image(data->mlx, data->tex.ea_img.img_ptr);
 
 }
 
@@ -32,11 +45,17 @@ void    free_all(t_data *data)
         free(data->wetex);
     if (data->eatex)
         free(data->eatex);
-    //free map
     free_map(data);
-    //free mlx
+    destroy_all_imgs(data);
     if (data->mlx != NULL)
+    {
+        if (data->win != NULL)
+            mlx_destroy_window(data->mlx, data->win);
         free(data->mlx);
+    }
+    //test
+    printf("destroyed mlx and win\n");
+    //
 }
 
 void    error_exit(char *error_msg, t_data *data)

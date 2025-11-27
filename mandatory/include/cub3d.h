@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcai <bcai@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: caibei <caibei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:11:46 by bcai              #+#    #+#             */
-/*   Updated: 2024/08/21 18:21:31 by bcai             ###   ########.fr       */
+/*   Updated: 2025/11/27 22:57:09 by caibei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "./libft/libft.h"
-# include "./minilibx/mlx.h"
+# include "../lib/libft/libft.h"
+# include "../lib/minilibx/mlx.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>

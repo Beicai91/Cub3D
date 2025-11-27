@@ -46,9 +46,11 @@ make all
 <img width="567" height="523" alt="check-horizontal-intersection" src="https://github.com/user-attachments/assets/0910a7d1-571b-4fdf-8c0f-7b186ecd3dd8" />
 <img width="540" height="351" alt="check-vertical-intersection" src="https://github.com/user-attachments/assets/e1cc4467-40ed-42a2-b702-aacd50d7af54" />
 
+<br>
 - Wall scaling illustration
 <img width="832" height="712" alt="Wall-scaling-illustration" src="https://github.com/user-attachments/assets/45216b87-b7d5-4d82-bcc5-43c2749e0e46" />
 
+<br>
 - Mouse movement updates the camera by tracking the latest and previous cursor positions.Each mouse movement creates a new node holding the latest cursor coordinates at the head of a linked list. The next node has the previous cursor coordinates. Two cursor coordinates are then compared to detect horizontal or vertical motion of player's view, which leads to update of the frame. A drawback of this approach is that it can produce memory leaks if the linked list grows unchecked.
 
 ## Demo

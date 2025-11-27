@@ -24,11 +24,11 @@ make all
 ```
 
 ## Controls
-**W**: Move forward
-**S**: Move backward
-**A**: Move left
-**D**: Move right
-**Touch pad**: Rotate camera
+**W**: Move forward <br>
+**S**: Move backward <br>
+**A**: Move left <br>
+**D**: Move right <br>
+**Touchpad / mouse**: Rotate camera <br>
 **ESC**: Quit the game
 
 ## Dev features
@@ -48,6 +48,8 @@ make all
 
 - Wall scaling illustration
 <img width="832" height="712" alt="Wall-scaling-illustration" src="https://github.com/user-attachments/assets/45216b87-b7d5-4d82-bcc5-43c2749e0e46" />
+
+- Mouse movement updates the camera by tracking the latest and previous cursor positions.Each mouse movement creates a new node holding the latest cursor coordinates at the head of a linked list. The next node has the previous cursor coordinates. Two cursor coordinates are then compared to detect horizontal or vertical motion of player's view, which leads to update of the frame. A drawback of this approach is that it can produce memory leaks if the linked list grows unchecked.
 
 ## Demo
 ![Cub4D](https://github.com/user-attachments/assets/578db84c-7c0b-48bc-8fcc-78a61cfc01db)
